@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TMMS — Test Management & Monitoring System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="logo-block"><img src="./assets/academy-logo.png" alt="Академия сервиса и продаж" /></div>
+      <div class="product">
+        <div class="product-mark">TMMS</div>
+        <div><strong>Test Management<br>& Monitoring System</strong><span>Система управления корпоративным тестированием</span></div>
+      </div>
+      <nav class="nav">
+        <button class="active" onclick="setStage('prep')">Подготовка</button>
+        <button onclick="setStage('live')">Мониторинг</button>
+        <button onclick="setStage('verify')">Сверка</button>
+        <button onclick="setStage('results')">Результаты</button>
+        <button onclick="setStage('report')">Отчётность</button>
+        <button onclick="setStage('archive')">Архив</button>
+      </nav>
+      <div class="sidebar-note"><span>Shadow Mode</span><p>TMMS пока работает параллельно старому процессу и ничего не ломает.</p></div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div><p class="eyebrow">Academy of Service & Sales · Corporate University</p><h1 id="stageTitle">Подготовка к тестированию</h1></div>
+        <div class="topbar-right"><img src="./assets/cu-logo.png" alt="Kazakhtelecom Corporate University" /><div class="status-pill" id="stagePill">До старта: 3 дня</div></div>
+      </header>
+
+      <section class="hero-card">
+        <div><p class="eyebrow light">Текущий цикл</p><h2>Июль 2026 · B2C Front Office</h2><p id="stageDescription">Система готовит рабочее пространство: график, Zoom, Google Sheets и контрольные файлы.</p></div>
+        <div class="big-metric"><span id="mainMetricLabel">Готовность</span><strong id="mainMetric">72%</strong></div>
+      </section>
+
+      <section class="stage-flow">
+        <div class="step active" id="flow-prep"><span>01</span><strong>Подготовка</strong><small>График, Zoom, источники</small></div>
+        <div class="step" id="flow-live"><span>02</span><strong>Мониторинг</strong><small>Google Sheets + Zoom</small></div>
+        <div class="step" id="flow-verify"><span>03</span><strong>Сверка</strong><small>Sheets ↔ iSpring</small></div>
+        <div class="step" id="flow-results"><span>04</span><strong>Результаты</strong><small>KPI, средние, 0%</small></div>
+        <div class="step" id="flow-report"><span>05</span><strong>Отчётность</strong><small>Свод и служебка</small></div>
+      </section>
+
+      <section class="grid">
+        <article class="panel wide">
+          <div class="panel-head"><div><p class="eyebrow">Рабочий день</p><h3 id="primaryPanelTitle">Что важно сейчас</h3></div><button class="ghost">Открыть детали</button></div>
+          <div class="action-list" id="actionList"></div>
+        </article>
+
+        <article class="panel ai-panel">
+          <div class="panel-head"><div><p class="eyebrow light">AI Assistant</p><h3>TMMS Insight</h3></div><div class="ai-orb"></div></div>
+          <div class="assistant-card" id="assistantText">Проверил подготовку. Осталось вставить актуальный график и ссылку на Google Таблицу мониторинга.</div>
+          <div class="assistant-mini"><span>Режим:</span><b>наблюдение и подсказки</b></div>
+        </article>
+
+        <article class="panel">
+          <p class="eyebrow">Источники данных</p>
+          <div class="source connected"><span>Google Sheets</span><b>Подключена</b></div>
+          <div class="source connected"><span>iSpring Learn</span><b>Файлы готовы</b></div>
+          <div class="source pending"><span>Zoom</span><b>Ссылка сохранена</b></div>
+          <div class="source muted-source"><span>История 3 тестов</span><b>ожидает</b></div>
+        </article>
+
+        <article class="panel wide">
+          <div class="panel-head"><div><p class="eyebrow">Verification Center</p><h3>Сверка Google Sheets ↔ iSpring</h3></div><button class="primary">Запустить сверку</button></div>
+          <div class="verification">
+            <div class="v-card good"><strong>615</strong><span>Совпали</span></div>
+            <div class="v-card warning"><strong>18</strong><span>Похожие ФИО</span></div>
+            <div class="v-card danger"><strong>9</strong><span>Возможные нарушения</span></div>
+            <div class="v-card neutral"><strong>4</strong><span>Не найдены</span></div>
+          </div>
+          <div class="case-list">
+            <div class="case danger"><div><b>Иванов Иван</b><span>Есть результат в iSpring, но нет записи в Google Sheets</span></div><em>Возможное прохождение вне мониторинга</em></div>
+            <div class="case warning compare-case"><div><b>есимжанов ильяс <span class="approx">≈</span> Есімжанов Ілияс</b><span>Похожесть 96%</span></div><em>Требуется подтверждение</em></div>
+            <div class="case warning"><div><b>Примечание: “2 телефона, проверить”</b><span>TMMS предлагает проверить устройства входа в iSpring</span></div><em>Ручная проверка</em></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <p class="eyebrow">KPI Summary</p>
+          <div class="kpi-line excellent"><span>Общество</span><strong>89%</strong></div>
+          <div class="kpi-line good"><span>АРДТ</span><strong>91%</strong></div>
+          <div class="kpi-line good"><span>ЮРДТ</span><strong>87%</strong></div>
+          <div class="kpi-line attention"><span>ВРДТ</span><strong>76%</strong></div>
+          <div class="kpi-line critical"><span>ЗРДТ</span><strong>48%</strong></div>
+        </article>
+
+        <article class="panel">
+          <p class="eyebrow">Журнал проекта</p>
+          <ul class="decision-list">
+            <li><b>№015</b> TMMS не заменяет Google Sheets</li>
+            <li><b>№016</b> Работа только с нужными столбцами</li>
+            <li><b>№021</b> Сравниваем людей, а не строки</li>
+            <li><b>№025</b> Интерфейс событийный</li>
+          </ul>
+        </article>
+      </section>
+
+      <footer class="credits">
+        <div class="credits-inner">
+          <div class="credits-copy">
+            <p class="eyebrow light">End credits</p><h2>TMMS</h2><p>Test Management & Monitoring System</p>
+            <div class="credit-lines">
+              <span>Product idea & business logic</span><b>Алмат Ембергенов</b>
+              <span>Architecture, interface concept & code support</span><b>OpenAI · ChatGPT</b>
+            </div>
+            <small>Academy of Service & Sales · Kazakhtelecom Corporate University · 2026</small>
+          </div>
+          <div class="credit-sticker"><img src="./assets/author-sticker.jpg" alt="Author sticker" /></div>
+        </div>
+      </footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
